@@ -21,16 +21,30 @@ function Logo() {
 }
 
 function Form() {
-  return <div className="add-form">
-    <h3>What do you need for your 🧳 trip?</h3>
-  </div>
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log(e);
+    
+  }
+
+  return (
+    <form className="add-form" onSubmit={handleSubmit}>
+      <h3>What do you need for your 🧳 trip?</h3>
+      <select>
+        {Array.from({length: 20}, (_, i) => i + 1).map(num => <option key={num} value={num}>{num}</option>)}
+      </select>
+      <input type="text" placeholder="Item..."/>
+      <button>Add</button>
+    </form>
+  )
 }
 
 function PackingList() {
   return (
     <div className="list">
       <ul>
-        {initialItems.map(item => <Item key={item} item={item}/>)}
+        {initialItems.map(item => <Item key={item.id} item={item}/>)}
       </ul>
     </div>
   );
