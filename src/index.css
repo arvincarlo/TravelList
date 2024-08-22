@@ -72,14 +72,20 @@ input {
   cursor: pointer;
 }
 
-.add-form button {
+/* .add-form button {
   text-transform: uppercase;
   background-color: #76c7ad;
-}
+} */
 
 .list {
-  background-color: #5a3e2b;
-  color: #ffebb3;
+  /* background-color: #5a3e2b; */
+  background-image: url('https://images.ctfassets.net/bth3mlrehms2/5B4dK7Oh7cXR1Ej2LtQFhB/50b5a97dd56ae968fe49572ae89811e4/Vietnam__Danang__2_.jpg?w=2119&h=1191&fl=progressive&q=50&fm=jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0px -100px;
+  /* background-size: 100vw 100vh; */
+  /* background-position: center; */
+  color: #5a3e2b;
   padding: 4rem 0;
 
   display: flex;
@@ -89,7 +95,7 @@ input {
   align-items: center;
 }
 
-.actions button,
+/* .actions button, */
 .list select {
   text-transform: uppercase;
   padding: 0.8rem 2.4rem;
@@ -138,3 +144,47 @@ input[type="checkbox"] {
   font-weight: 700;
   padding: 3.2rem 0;
 }
+
+
+/* From Uiverse.io by Mike11jr */ 
+.btn {
+  padding: 1.1em 2em;
+  background: none;
+  border: 2px solid #fff;
+  font-size: 15px;
+  color: #131313;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+  border-radius: 35px;
+  background-color: #ecd448;
+  font-weight: bolder;
+  box-shadow: 0 2px 0 2px #000;
+ }
+ 
+ .btn:before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 120%;
+  background-color: #ff6700;
+  top: 50%;
+  transform: skewX(30deg) translate(-150%, -50%);
+  transition: all 0.5s;
+ }
+ 
+ .btn:hover {
+  background-color: #76c7ad;
+  color: #000;
+  box-shadow: 0 2px 0 2px #0d3b66;
+ }
+ 
+ .btn:hover::before {
+  transform: skewX(30deg) translate(150%, -50%);
+  transition-delay: 0.1s;
+ }
+ 
+ .btn:active {
+  transform: scale(0.9);
+ }
