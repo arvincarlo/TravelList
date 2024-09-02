@@ -8,11 +8,17 @@ const initialItems = [
 ];
 
 function App() {
+  const [items, setItems] = useState([]);
+
+  function handleAddItems(item) {
+    setItems((items) => [...items, item]);
+  }
+
   return (
     <div className="app">
       <Logo/>
-      <Form/>
-      <PackingList/>
+      <Form onAddItems={handleAddItems}/>
+      <PackingList items={items}/>
       {/* {initialItems.map(item => <PackingList key={item.id} item={item}/>) } */}
       <Stats/>
     </div>
@@ -20,10 +26,10 @@ function App() {
 }
 
 function Logo() {
-  return <h1>🛫 Da Nang - Hoi An - Hue 🚞</h1>
+  return <h1>🏰 Da Nang - Hue - Hoi An 🚞</h1>
 }
 
-function Form() {
+function Form({onAddItems}) {
   const [description, setDescription] = useState('');
   const [quantity, setQuantity] = useState(1);
 
@@ -36,7 +42,7 @@ function Form() {
       description, quantity, packed: false, id: Date.now()
     };
 
-    console.table(newItem);
+    onAddItems(newItem);
     resetState();
   }
 
@@ -57,11 +63,11 @@ function Form() {
   )
 }
 
-function PackingList() {
+function PackingList({items}) {
   return (
     <div className="list">
       <ul>
-        {initialItems.map(item => <Item key={item.id} item={item}/>)}
+        {items.map(item => <Item key={item.id} item={item}/>)}
       </ul>
     </div>
   );
@@ -78,7 +84,7 @@ function Item({item}) {
   return (
     <li>
       <span style={item.packed ? { textDecoration: "line-through" } : {}}>{item.quantity} {item.description}</span>
-      <button>⚡</button>
+      <button>❌</button>
     </li>
   )
 }

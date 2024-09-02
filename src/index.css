@@ -85,7 +85,7 @@ input {
   background-position: 0px -100px;
   /* background-size: 100vw 100vh; */
   /* background-position: center; */
-  color: #5a3e2b;
+  color: #ffebb3;
   padding: 4rem 0;
 
   display: flex;
@@ -118,9 +118,14 @@ input {
 }
 
 .list li {
+  text-align: center;
+  justify-content: center;
+  width: 200px;
+  background-color: #5a3e2b;
   display: flex;
   align-items: center;
-  gap: 1.2rem;
+  border-radius: 20px;
+  /* gap: 1.2rem; */
 }
 
 input[type="checkbox"] {
